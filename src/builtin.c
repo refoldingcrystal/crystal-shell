@@ -37,7 +37,7 @@ int sh_cd(char **args){
 int sh_help(char **args){
 	int i;
 
-	printf("crystal shell\n");
+	printf("crystal shell by lozinka\n");
 	printf("builtin functions:\n");
 	for (i = 0; i < builtin_count(); i++){
 		printf("  %s\n", builtin_names[i]);
@@ -65,4 +65,13 @@ int sh_alias(char **args){
 		/* TODO: handle error */
 	}
 	return EXIT_SUCCESS;
+}
+
+void sh_logo(){
+	printf("                _        _      _        _ _\n");
+	printf(" __ _ _ _  _ __| |_ __ _| |  __| |_  ___| | |\n");
+	printf("/ _| '_| || (_-<  _/ _` | | (_-< ' \\/ -_) | |\n");
+	printf("\\__|_|  \\_, /__/\\__\\__,_|_| /__/_||_\\___|_|_|\n");
+	printf("        |__/ use 'help' for list of features\n");
+	printf("\n");
 }

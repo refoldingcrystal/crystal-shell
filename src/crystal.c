@@ -38,8 +38,10 @@ int sh_exec(char **args){
 
 int main(int argc, char **argv){
 	char *line;
-	char **args;
+	char **args = NULL;
 	int status;
+
+	sh_logo();
 
 	while(1){
 		printf("> ");
