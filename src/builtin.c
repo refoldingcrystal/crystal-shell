@@ -37,11 +37,13 @@ int sh_cd(char **args){
 int sh_help(char **args){
 	int i;
 
-	printf("crystal shell by lozinka\n");
+	printf("\n     crystal shell\n");
+	printf("made by lozinka with <3\n\n");
 	printf("builtin functions:\n");
 	for (i = 0; i < builtin_count(); i++){
 		printf("  %s\n", builtin_names[i]);
 	}
+	printf("\n");
 	return EXIT_SUCCESS;
 }
 

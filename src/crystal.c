@@ -1,3 +1,5 @@
+#include <linux/limits.h>
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -39,12 +41,17 @@ int sh_exec(char **args){
 int main(int argc, char **argv){
 	char *line;
 	char **args = NULL;
+	char cwd[PATH_MAX], hostname[HOST_NAME_MAX + 1];
+	char *username = getlogin();
 	int status;
 
 	sh_logo();
+	gethostname(hostname, HOST_NAME_MAX + 1);
 
 	while(1){
-		printf("> ");
+		getcwd(cwd, sizeof(cwd));
+		printf("[\033[1m%s\033[0m@\033[1m%s\033[0m] \033[1m%s\033[0m >", username, hostname, cwd);
+
 		line = read_line();
 		args = split_line(line);
 		status = sh_exec(args);

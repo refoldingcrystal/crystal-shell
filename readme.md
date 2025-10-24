@@ -19,13 +19,13 @@ compile and run
 
 ## todo
 
-- welcome screen
+- handling ctrl+C
+- proper exit handling
 - in-built functions
+    - cd
     - alias
     - history
 - history search with arrows
 - config file
-- proper exit handling
 - quotes and backslashes in command arguments
-- better prompt
-- handling ctrl+C
+- better current working dir
