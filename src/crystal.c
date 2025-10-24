@@ -4,10 +4,20 @@
 #include <sys/wait.h>
 
 #include "input.h"
+#include "builtin.h"
 
 int sh_exec(char **args){
 	pid_t pid;
-	int status;
+	int status, i;
+
+	if (args[0] == NULL){
+		return EXIT_SUCCESS;
+	}
+	for (i = 0; i < builtin_count(); i++){
+		if (!strcmp(args[0], builtin_names[i])){
+			return (*builtin_func[i])(args);
+		}
+	}
 
 	pid = fork();
 	if (!pid){
